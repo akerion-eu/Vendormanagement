@@ -147,7 +147,7 @@ function VendorForm() {
       <input
         type={type}
         name={name}
-        value={(formData as Record<string, string>)[name] || ''}
+        value={(Object.fromEntries(Object.entries(formData).filter(([_, v]) => v !== undefined)) as Record<string, string>)[name] || ''}
         onChange={handleChange}
         required={required}
       />
